@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+.NumBtn {
+  margin-left: 10px;
+  color: #F9FCFF;
+  background-color: #73CDC2;
+  border-width: 0;
+  border-radius: 15px;
+  padding: 10px 15px;
+}
