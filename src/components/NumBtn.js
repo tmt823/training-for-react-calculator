@@ -5,17 +5,18 @@ export class NumBtn extends React.Component {
   constructor(){
     super();
     this.state = {
-      displayNum: 0,
-      inputNum : 0,
+      displayNum: "",
+      inputNum : "",
       operator: "",
     };
   }
 
   render(){
     return(
-      <div>
-        <p>{this.state.displayNum}</p>
-        <p>{this.state.inputNum}</p>
+      <div className="content">
+        <p className="text">displayNum : {this.state.displayNum}</p>
+        <p className="text">inputNum : {this.state.inputNum}</p>
+        <button onClick={this.input} value={0} className="NumBtn">0</button>
         <button onClick={this.input} value={1} className="NumBtn">1</button>
         <button onClick={this.input} value={2} className="NumBtn">2</button>
         <button onClick={this.input} value={3} className="NumBtn">3</button>
@@ -25,14 +26,21 @@ export class NumBtn extends React.Component {
         <button onClick={this.input} value={7} className="NumBtn">7</button>
         <button onClick={this.input} value={8} className="NumBtn">8</button>
         <button onClick={this.input} value={9} className="NumBtn">9</button>
-        <button onClick={this.onOperator} value={"+"}>+</button>
-        <button onClick={this.calculate}>=</button>
+        <button onClick={this.onOperator} value={"+"} className="NumBtn">+</button>
+        <button onClick={this.onOperator} value={"-"} className="NumBtn">-</button>
+        <button onClick={this.onOperator} value={"*"} className="NumBtn">x</button>
+        <button onClick={this.onOperator} value={"/"} className="NumBtn">/</button>
+        <button onClick={this.calculate} className="NumBtn">=</button>
       </div>
     )
   }
 
   input = (event) => {
-    this.setState({inputNum: Number(event.target.value)});
+    if(this.state.operator === "") {
+      this.setState({displayNum: this.state.displayNum + event.target.value});
+    } else {
+      this.setState({inputNum: this.state.inputNum + event.target.value});
+    }
   }
 
   onOperator = (event) => {
@@ -41,10 +49,29 @@ export class NumBtn extends React.Component {
     });
   }
   calculate = () => {
-    if(this.state.operator === "+"){
-      this.setState({
-        displayNum: this.state.displayNum + this.state.inputNum
-      });
+    switch(this.state.operator){
+      case '+':
+        this.setState({
+          displayNum: Number(this.state.displayNum) + Number(this.state.inputNum)
+        });
+        break;
+      case '-':
+        this.setState({
+          displayNum: Number(this.state.displayNum) - Number(this.state.inputNum)
+        });
+        break;
+      case '*':
+        this.setState({
+          displayNum: Number(this.state.displayNum) * Number(this.state.inputNum)
+        });
+        break;
+      case '/':
+        this.setState({
+          displayNum: Number(this.state.displayNum) / Number(this.state.inputNum)
+        });
+        break;
+      default:
     }
+    this.setState({inputNum: ""});
   }
 }

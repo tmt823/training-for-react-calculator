@@ -1,10 +1,30 @@
 @charset "utf-8";
 
+.content {
+  width: 780px;
+  margin: 0 auto;
+}
+.text {
+  color: #73CDC2;
+  font-weight: bold;
+}
 .NumBtn {
   margin-left: 10px;
+  padding: 10px 15px;
+  width: 40px;
   color: #F9FCFF;
   background-color: #73CDC2;
-  border-width: 0;
-  border-radius: 15px;
-  padding: 10px 15px;
+  border-color: #73CDC2;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50%;
+}
+.NumBtn:first-of-type {
+  margin-left: 0;
+}
+.NumBtn:hover {
+  color: #73CDC2;
+  border-color: #73CDC2;
+  border-width: 1px;
+  background-color: #F9FCFF;
 }
