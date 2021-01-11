@@ -1,12 +1,79 @@
-// import './App.css';
+import React from 'react';
 import { NumBtn } from "./components/NumBtn";
+import { OperatorBtn } from "./components/OperatorBtn";
+import { ResultBtn } from "./components/ResultBtn";
+import { ClearBtn } from "./components/ClearBtn";
 
-function CalculatorApp() {
-  return (
-    <div className="App">
-      <NumBtn />
-    </div>
-  );
+import "./css/index.css";
+
+export class CalculatorApp extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      displayNum: "",
+      inputNum: "",
+      operator: "",
+    };
+  }
+  render() {
+    return (
+      <div className="content">
+        <h2 className="title">Calculator</h2>
+        <div className="content__inner">
+          <p className="text">displayNum : {this.state.displayNum}</p>
+          <NumBtn clickNum={this.clickNum} />
+          <OperatorBtn clickOperator={this.clickOperator} />
+          <ResultBtn clickResult={this.clickResult} />
+          <ClearBtn clickClear={this.clickClear} />
+        </div>
+      </div>
+    );
+  }
+
+  clickNum = number => {
+    if(this.state.operator === "") {
+      this.setState({displayNum: this.state.displayNum + number});
+    } else {
+      this.setState({inputNum: this.state.inputNum + number});
+    }
+  }
+  clickOperator = operator => {
+    this.setState({
+      operator: operator
+    });
+  }
+  clickResult = () => {
+    switch(this.state.operator){
+      case '+':
+        this.setState({
+          displayNum: Number(this.state.displayNum) + Number(this.state.inputNum)
+        });
+        break;
+      case '-':
+        this.setState({
+          displayNum: Number(this.state.displayNum) - Number(this.state.inputNum)
+        });
+        break;
+      case '*':
+        this.setState({
+          displayNum: Number(this.state.displayNum) * Number(this.state.inputNum)
+        });
+        break;
+      case '/':
+        this.setState({
+          displayNum: Number(this.state.displayNum) / Number(this.state.inputNum)
+        });
+        break;
+      default:
+    }
+    this.setState({inputNum: ""});
+  }
+
+  clickClear = () => {
+    this.setState({
+      displayNum: "",
+      inputNum: "",
+      operator: "",
+    })
+  }
 }
-
-export default CalculatorApp;

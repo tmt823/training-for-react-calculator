@@ -4,12 +4,18 @@
   width: 780px;
   margin: 0 auto;
 }
+.content__inner {
+  width: 150px;
+}
+.title {
+  color: #73CDC2;
+  font-weight: bold;
+}
 .text {
   color: #73CDC2;
   font-weight: bold;
 }
-.NumBtn {
-  margin-left: 10px;
+.button {
   padding: 10px 15px;
   width: 40px;
   color: #F9FCFF;
@@ -19,12 +25,21 @@
   border-style: solid;
   border-radius: 50%;
 }
-.NumBtn:first-of-type {
+.button:first-of-type {
   margin-left: 0;
 }
-.NumBtn:hover {
+.button:hover {
   color: #73CDC2;
   border-color: #73CDC2;
   border-width: 1px;
   background-color: #F9FCFF;
+}
+.numberArea {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+.operatorArea {
+  display: flex;
 }
