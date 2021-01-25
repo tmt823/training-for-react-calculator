@@ -12,6 +12,7 @@ export class CalculatorApp extends React.Component {
     this.state = {
       displayNum: "",
       inputNum: "",
+      prevNum: "",
       operator: "",
     };
   }
@@ -34,7 +35,13 @@ export class CalculatorApp extends React.Component {
     if(this.state.operator === "") {
       this.setState({displayNum: this.state.displayNum + number});
     } else {
-      this.setState({inputNum: this.state.inputNum + number});
+      if(this.state.prevNum === "") {
+        this.setState({prevNum: this.state.displayNum});
+      }
+      this.setState({
+        inputNum: this.state.inputNum + number,
+        displayNum: this.state.inputNum + number
+      });
     }
   }
   clickOperator = operator => {
@@ -46,27 +53,30 @@ export class CalculatorApp extends React.Component {
     switch(this.state.operator){
       case '+':
         this.setState({
-          displayNum: Number(this.state.displayNum) + Number(this.state.inputNum)
+          displayNum: Number(this.state.prevNum) + Number(this.state.inputNum)
         });
         break;
       case '-':
         this.setState({
-          displayNum: Number(this.state.displayNum) - Number(this.state.inputNum)
+          displayNum: Number(this.state.prevNum) - Number(this.state.inputNum)
         });
         break;
       case '*':
         this.setState({
-          displayNum: Number(this.state.displayNum) * Number(this.state.inputNum)
+          displayNum: Number(this.state.prevNum) * Number(this.state.inputNum)
         });
         break;
       case '/':
         this.setState({
-          displayNum: Number(this.state.displayNum) / Number(this.state.inputNum)
+          displayNum: Number(this.state.prevNum) / Number(this.state.inputNum)
         });
         break;
       default:
     }
-    this.setState({inputNum: ""});
+    this.setState({
+      inputNum: "",
+      prevNum: ""
+    });
   }
 
   clickClear = () => {
