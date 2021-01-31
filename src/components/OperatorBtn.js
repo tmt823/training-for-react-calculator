@@ -1,9 +1,6 @@
 import React from 'react';
 
 export class OperatorBtn extends React.Component {
-  constructor() {
-    super();
-  }
   render() {
     return(
       <div className="operatorArea">

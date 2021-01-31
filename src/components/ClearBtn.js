@@ -1,9 +1,7 @@
 import React from 'react';
 
 export class ClearBtn extends React.Component {
-  constructor() {
-    super();
-  }
+
   render(){
     return(
       <div>

@@ -1,9 +1,6 @@
 import React from 'react';
 
 export class NumBtn extends React.Component {
-  constructor(){
-    super();
-  }
 
   render(){
     return(
