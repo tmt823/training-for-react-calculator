@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function ResultBtn () {
+export function ResultBtn (props) {
   return(
     <div>
-      <button onClick={this.props.clickResult} className="button">=</button>
+      <button onClick={props.clickResult} className="button">=</button>
     </div>
   );
 }

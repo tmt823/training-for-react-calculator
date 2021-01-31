@@ -31,7 +31,8 @@ export class CalculatorApp extends React.Component {
     );
   }
 
-  clickNum = number => {
+  clickNum = event => {
+    const number = event.target.value
     if(this.state.operator === "") {
       this.setState({displayNum: this.state.displayNum + number});
     } else {
@@ -44,9 +45,10 @@ export class CalculatorApp extends React.Component {
       });
     }
   }
-  clickOperator = operator => {
+
+  clickOperator = event => {
     this.setState({
-      operator: operator
+      operator: event.target.value
     });
   }
   clickResult = () => {

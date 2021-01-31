@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function ClearBtn(){
+export function ClearBtn(props){
   return (
     <div>
-      <button onClick={this.props.clickClear} className="button">C</button>
+      <button onClick={props.clickClear} className="button">C</button>
     </div>
   );
 
