@@ -286,5 +286,19 @@ $RECYCLE.BIN/
 # node_modulesを追加
 node_modules/
 
-#
+# Optional eslint cache
 .eslintcache
+
+# Created by https://www.toptal.com/developers/gitignore/api/firebase
+# Edit at https://www.toptal.com/developers/gitignore?templates=firebase
+
+### Firebase ###
+.idea
+**/node_modules/*
+**/.firebaserc
+
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/
+
+# End of https://www.toptal.com/developers/gitignore/api/firebase
