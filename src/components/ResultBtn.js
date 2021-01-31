@@ -7,12 +7,8 @@ export class ResultBtn extends React.Component {
   render(){
     return(
       <div>
-        <button onClick={this.calculate} className="button">=</button>
+        <button onClick={this.props.clickResult} className="button">=</button>
       </div>
     );
-  }
-  calculate = event => {
-    event.preventDefault();
-    this.props.clickResult();
   }
 }

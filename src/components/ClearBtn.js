@@ -7,11 +7,9 @@ export class ClearBtn extends React.Component {
   render(){
     return(
       <div>
-        <button onClick={this.clear} className="button">C</button>
+        <button onClick={this.props.clickClear} className="button">C</button>
       </div>
     );
   }
-  clear = () => {
-    this.props.clickClear();
-  }
+
 }
