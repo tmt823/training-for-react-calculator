@@ -34,6 +34,7 @@ export class CalculatorApp extends React.Component {
   clickNum = event => {
     const number = event.target.value
     if(this.state.operator === "") {
+      // 初回の数字入力
       this.setState({displayNum: this.state.displayNum + number});
     } else {
       if(this.state.prevNum === "") {
@@ -50,6 +51,9 @@ export class CalculatorApp extends React.Component {
     this.setState({
       operator: event.target.value
     });
+    if(this.state.inputNum !== "" && this.state.prevNum !== "") {
+      this.clickResult();
+    }
   }
   clickResult = () => {
     switch(this.state.operator){
