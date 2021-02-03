@@ -4,6 +4,7 @@ import { OperatorBtn } from "./components/OperatorBtn";
 import { ResultBtn } from "./components/ResultBtn";
 import { ClearBtn } from "./components/ClearBtn";
 
+import "./css/normalize.css";
 import "./css/index.css";
 
 export class CalculatorApp extends React.Component {
@@ -21,7 +22,7 @@ export class CalculatorApp extends React.Component {
       <div className="content">
         <h2 className="title">Calculator</h2>
         <div className="content__inner">
-          <p className="text">displayNum : {this.state.displayNum}</p>
+          <p className="text">{this.state.displayNum}</p>
           <NumBtn clickNum={this.clickNum} />
           <OperatorBtn clickOperator={this.clickOperator} />
           <ResultBtn clickResult={this.clickResult} />

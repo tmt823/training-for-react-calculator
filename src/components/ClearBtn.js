@@ -2,7 +2,7 @@ import React from 'react';
 
 export function ClearBtn(props){
   return (
-    <div>
+    <div className="clearBtnArea">
       <button onClick={props.clickClear} className="button">C</button>
     </div>
   );

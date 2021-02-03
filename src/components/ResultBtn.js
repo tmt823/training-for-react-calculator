@@ -2,7 +2,7 @@ import React from 'react';
 
 export function ResultBtn (props) {
   return(
-    <div>
+    <div className="resultBtnArea">
       <button onClick={props.clickResult} className="button">=</button>
     </div>
   );
